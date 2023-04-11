@@ -1,0 +1,20 @@
+{
+  "name": "b2b-design-system",
+  "version": "1.0.0",
+  "description": "Web components for the Otto Marketplace",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo \"build\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otto-de/b2b-design-system.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/otto-de/b2b-design-system/issues"
+  },
+  "homepage": "https://github.com/otto-de/b2b-design-system#readme"
+}
