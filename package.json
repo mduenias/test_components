@@ -4,7 +4,7 @@
   "description": "Web components for the Otto Marketplace",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"build\"",
+    "build": "mkdir dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
