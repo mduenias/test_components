@@ -7,5 +7,4 @@ on:
 jobs:
   deploy_docker_image:
     name: Deploy Docker Image
-    needs: [ install ]
     uses: ./.github/workflows/docker-image.yml
