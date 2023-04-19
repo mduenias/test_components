@@ -1,10 +1,5 @@
 on:
   workflow_call:
-    inputs:
-      node_version:
-        description: 'Node Version'
-        required: true
-        type: string
 
 env:
   REGISTRY: ghcr.io

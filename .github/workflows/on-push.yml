@@ -5,10 +5,7 @@ on:
       - main
 
 jobs:
-  deploy_documentation_nonlive:
-    name: Deploy Documentation - Nonlive
-    uses: ./.github/workflows/deploy.yml
-    with:
-      environment: nonlive
-      image_tag: snapshot_${{ github.sha }}
-      node_version: 16
+  deploy_docker_image:
+    name: Deploy Docker Image
+    needs: [ install ]
+    uses: ./.github/workflows/docker-image.yml
