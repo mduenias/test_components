@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  docker_digest:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
@@ -17,8 +17,8 @@ jobs:
           echo "digest=$response" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
-    needs: job1
+    needs: docker_digest
     steps:
       - env:
-          OUTPUT2: ${{needs.job1.outputs.digest}}
+          OUTPUT2: ${{needs.docker_digest.outputs.digest}}
         run: echo "$OUTPUT2"
