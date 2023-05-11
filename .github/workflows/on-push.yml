@@ -5,6 +5,6 @@ on:
       - main
 
 jobs:
-  deploy_docker_image:
-    name: Deploy Docker Image
-    uses: ./.github/workflows/docker-image.yml
+#  deploy_docker_image:
+#    name: Deploy Docker Image
+#    uses: ./.github/workflows/docker-image.yml

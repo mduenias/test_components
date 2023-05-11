@@ -17,7 +17,7 @@ jobs:
           echo "digest=$response" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
-    needs: job1
+    needs: docker_digest
     steps:
       - env:
           OUTPUT2: ${{needs.job1.outputs.output2}}
