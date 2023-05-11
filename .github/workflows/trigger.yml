@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Deploy resources
         run: |
-          curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags
+          curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results'
