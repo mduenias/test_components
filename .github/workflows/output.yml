@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
-      output2: ${{ steps.docker.outputs.digest }}
+      digest: ${{ steps.docker.outputs.digest }}
     steps:
       - name: Get latest image digest
         id: docker
@@ -20,5 +20,5 @@ jobs:
     needs: job1
     steps:
       - env:
-          OUTPUT2: ${{needs.job1.outputs.output2}}
+          OUTPUT2: ${{needs.job1.outputs.digest}}
         run: echo "$OUTPUT2"
