@@ -13,7 +13,7 @@ jobs:
         run: |
           response=$(curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results[0].digest')
           echo "response from curl= $response"  
-          echo "digest=$response" >> "$GITHUB_OUTPUT"
+          echo "digest=bla" >> "$GITHUB_OUTPUT"
 
   test_output:
     runs-on: ubuntu-latest
