@@ -13,9 +13,10 @@ jobs:
       - id: step1
         run: echo "test=hello" >> "$GITHUB_OUTPUT"
       - id: step2
-        response=$(curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results[0].digest')
-        echo "response from curl= $response"
-        run: echo "test=world" >> "$GITHUB_OUTPUT"
+        run: |
+          response=$(curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results[0].digest')
+          echo "response from curl= $response"
+          echo "test=world" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
