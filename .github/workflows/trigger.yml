@@ -6,7 +6,7 @@ jobs:
   docker_digest:
     runs-on: ubuntu-latest
     outputs:
-      digest: ${{ steps.docker.outputs.digest }}
+      output1: ${{ steps.docker.outputs.digest }}
     steps:
       - name: Get latest image digest
         id: docker
@@ -18,5 +18,5 @@ jobs:
     needs: docker_digest
     steps:
       - env:
-          OUTPUT1: ${{needs.docker.outputs.digest}}
+          OUTPUT1: ${{needs.docker.outputs.output1}}
         run: echo "$OUTPUT1"
