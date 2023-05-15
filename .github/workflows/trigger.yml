@@ -19,5 +19,5 @@ jobs:
     needs: docker_digest
     steps:
       - env:
-          OUTPUT1: ${{needs.docker.outputs.output1}}
+          OUTPUT1: ${{needs.docker_digest.outputs.output1}}
         run: echo "$OUTPUT1"
