@@ -12,7 +12,8 @@ jobs:
       - name: Get latest image digest
         id: docker
         run: |
-          digest=$(curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results[0].digest')
+          docker_digets=$(curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results[0].digest')
+          echo "digest=docker_digets" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: docker_digest
