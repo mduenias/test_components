@@ -1,7 +1,12 @@
 name: GH code
 on:
   workflow_dispatch:
-
+    inputs:
+      tag:
+        description: 'Docker image tag to deploy'
+        required: false
+        default: 'latest'
+        type: string
 jobs:
   docker_digest:
     runs-on: ubuntu-latest
@@ -9,10 +14,12 @@ jobs:
     outputs:
       digest: ${{ steps.docker.outputs.digest }}
     steps:
+      - env:
+          TAG: ${{ inputs.tag }}
       - name: Get latest image digest
         id: docker
         run: |
-          docker_digets=$(curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r '.results[0].digest')
+          docker_digets=curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r --arg TAG "$TAG" '.results[] | select(.name == $TAG) | .digest'
           echo "digest=$docker_digets" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
