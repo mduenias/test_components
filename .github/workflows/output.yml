@@ -14,13 +14,13 @@ jobs:
     outputs:
       digest: ${{ steps.docker.outputs.digest }}
     steps:
-      - env:
-          TAG: ${{ inputs.tag }}
       - name: Get latest image digest
         id: docker
         run: |
           docker_digets=curl https://registry.hub.docker.com/v2/repositories/ottoopensource/b2bds-docs/tags | jq -r --arg TAG "$TAG" '.results[] | select(.name == $TAG) | .digest'
           echo "digest=$docker_digets" >> "$GITHUB_OUTPUT"
+        env:
+          TAG: ${{ inputs.tag }}
   job2:
     runs-on: ubuntu-latest
     needs: docker_digest
